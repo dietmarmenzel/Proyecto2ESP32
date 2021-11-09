@@ -43,3 +43,16 @@ String guardado= "";
 String prueba = "";
 
 bool comunicacion = false;
+
+//*****************************************************************************
+// Configuración
+//*****************************************************************************
+void setup() {
+  Serial.begin(115200);
+  Serial2.begin(115200); //Configuración serial
+
+
+  LastTime = millis(); //Medicion del tiempo
+  LastTime2 = millis();
+
+}
