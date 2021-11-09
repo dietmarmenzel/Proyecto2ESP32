@@ -65,3 +65,28 @@ void loop(){
   SensorTemperatura();
   //guardarinfo();
 }
+
+//*****************************************************************************
+// Funcion para medir temperatura
+//*****************************************************************************
+void SensorTemperatura(void){
+  temp = analogReadMilliVolts(sensor);
+  temp = temp / 10;
+
+   Serial2.println(temp);
+   prueba= Serial2.readStringUntil('\n');
+  
+  Serial.println(prueba);
+  //Serial.println(temp);
+
+  if (Serial2.available()>0){
+    medidad = Serial2.readStringUntil('\n');
+    //Comunicación con monitor
+    Serial2.print("Temperatura ");
+    Serial2.print(medidad);      
+    Serial2.print("°");
+    Serial2.println();  
+    Serial.println(temp); 
+  }
+
+}
