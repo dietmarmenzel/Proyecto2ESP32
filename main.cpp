@@ -98,5 +98,4 @@ void guardarinfo(void){
   if (guardado =="guardar"){
     Serial.println(temp);
   }
-
 }
