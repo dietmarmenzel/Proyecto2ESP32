@@ -90,3 +90,13 @@ void SensorTemperatura(void){
   }
 
 }
+//*****************************************************************************
+// Funcion para guardar la temperatura medida
+//*****************************************************************************
+void guardarinfo(void){
+  guardado =Serial2.readStringUntil('\n');
+  if (guardado =="guardar"){
+    Serial.println(temp);
+  }
+
+}
