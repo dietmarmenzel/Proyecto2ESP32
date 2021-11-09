@@ -101,3 +101,4 @@ void guardarinfo(void){
     Serial.println(temp);
   }
 }
+//FIN DEL CODIGO
