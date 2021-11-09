@@ -20,15 +20,15 @@
 //*****************************************************************************
 // Prototipos de funciones
 //*****************************************************************************
-void SensorTemperatura(void); 
-void guardarinfo(void);
+void SensorTemperatura(void); //Funcion para la medicion del sensor de temperatura
+void guardarinfo(void); //Funcion para guardar la informacion de la SD
 
 //*****************************************************************************
 // Variables Globales
 //*****************************************************************************
-int temp=0;
+int temp=0; //Temperatura en enteros
 
-//Tiempos de muestra para los colores
+//Tiempos de muestra
 long LastTime;
 long SampleTime = 250;
 
@@ -37,7 +37,7 @@ long SampleTime2 = 250;
 
 long LastTime3;
 long SampleTime3 = 250;
-
+//Guardar los datos 
 String medidad ="";
 String guardado= "";
 String prueba = "";
@@ -61,7 +61,7 @@ void setup() {
 // Loop Principal
 //*****************************************************************************
 void loop(){
-
+  //Variable del sensor
   SensorTemperatura();
   //guardarinfo();
 }
@@ -69,22 +69,23 @@ void loop(){
 //*****************************************************************************
 // Funcion para medir temperatura
 //*****************************************************************************
+//Declarando el valor de temperatura
 void SensorTemperatura(void){
   temp = analogReadMilliVolts(sensor);
   temp = temp / 10;
 
    Serial2.println(temp);
    prueba= Serial2.readStringUntil('\n');
-  
+  //Imprimiendo en monitor serie
   Serial.println(prueba);
   //Serial.println(temp);
 
   if (Serial2.available()>0){
     medidad = Serial2.readStringUntil('\n');
-    //Comunicación con monitor
+    //Comunicación con la pantalla
     Serial2.print("Temperatura ");
     Serial2.print(medidad);      
-    Serial2.print("°");
+    Serial2.print("°C");
     Serial2.println();  
     Serial.println(temp); 
   }
@@ -93,6 +94,7 @@ void SensorTemperatura(void){
 //*****************************************************************************
 // Funcion para guardar la temperatura medida
 //*****************************************************************************
+//Declarando que guarde los resultados del sensor
 void guardarinfo(void){
   guardado =Serial2.readStringUntil('\n');
   if (guardado =="guardar"){
