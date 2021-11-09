@@ -22,3 +22,24 @@
 //*****************************************************************************
 void SensorTemperatura(void); 
 void guardarinfo(void);
+
+//*****************************************************************************
+// Variables Globales
+//*****************************************************************************
+int temp=0;
+
+//Tiempos de muestra para los colores
+long LastTime;
+long SampleTime = 250;
+
+long LastTime2;
+long SampleTime2 = 250;
+
+long LastTime3;
+long SampleTime3 = 250;
+
+String medidad ="";
+String guardado= "";
+String prueba = "";
+
+bool comunicacion = false;
