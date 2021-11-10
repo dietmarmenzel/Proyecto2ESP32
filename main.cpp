@@ -78,7 +78,7 @@ void SensorTemperatura(void){
    prueba= Serial2.readStringUntil('\n');
   //Imprimiendo en monitor serie
   Serial.println(prueba);
-  //Serial.println(temp);
+  Serial.println(temp);
 
   if (Serial2.available()>0){
     medidad = Serial2.readStringUntil('\n');
